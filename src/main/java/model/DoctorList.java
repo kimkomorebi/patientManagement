@@ -7,6 +7,13 @@ public class DoctorList {
 	String title;//진료 과목
 	String p_addr;//환자 주소
 	String d_tel;//의사 번호
+	String m_code;//진료 코드
+	public String getM_code() {
+		return m_code;
+	}
+	public void setM_code(String m_code) {
+		this.m_code = m_code;
+	}
 	public String getD_code() {
 		return d_code;
 	}

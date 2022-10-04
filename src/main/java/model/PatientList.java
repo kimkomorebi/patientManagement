@@ -9,6 +9,13 @@ public class PatientList {
 	String d_name;//의사명
 	String room;//병실 변호
 	String reg_date;//등록일
+	String d_code;//의사 코드
+	public String getD_code() {
+		return d_code;
+	}
+	public void setD_code(String d_code) {
+		this.d_code = d_code;
+	}
 	public String getP_code() {
 		return p_code;
 	}

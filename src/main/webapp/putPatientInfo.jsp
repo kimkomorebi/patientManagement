@@ -36,7 +36,7 @@
 					<tr>
 						<th>진료 과목</th>
 						<td>
-							<select name="M_CODE">
+							<select name="TITLE">
 								<%
 									for(String tl : titleList){
 								%>
