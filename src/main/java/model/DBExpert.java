@@ -13,7 +13,52 @@ public class DBExpert {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
+	public boolean putPatientInfo(PatientList pl) {
+		
+	}
+	public ArrayList<String> getDoctorNameList(){
+		String select = "select name from doctor_info";
+		ArrayList<String> list = new ArrayList<String>();
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url,"hr","hr");
+			pstmt = con.prepareStatement(select);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String doctList = rs.getString(1);
+				list.add(doctList);
+			}
+		}catch(Exception e) {
+			
+		}finally {
+			try {
+				rs.close(); pstmt.close();con.close();
+			}catch(Exception e) {}
+		}
+		return list;
+	}
 	
+	public ArrayList<String> getTitleList(){
+		String select = "select title from course_info";
+		ArrayList<String> list = new ArrayList<String>();
+		try {
+			Class.forName(driver);
+			con = DriverManager.getConnection(url,"hr","hr");
+			pstmt = con.prepareStatement(select);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String titleList = rs.getString(1);
+				list.add(titleList);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				rs.close(); pstmt.close(); con.close();
+			}catch(Exception e) {}
+		}
+		return list;
+	}
 	public ArrayList<DoctorList> getDoctorList(){
 		String select = "select dt.d_code, dt.name, pt.addr, cs.title,dt.addr, dt.tel"
 				+ " from doctor_info dt, patient_info pt, course_info cs"
