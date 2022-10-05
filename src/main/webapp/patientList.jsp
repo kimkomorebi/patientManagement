@@ -37,7 +37,13 @@
 						<td><%= l.getD_name() %></td>
 						<td><%= l.getRoom() %></td>
 						<td><%= l.getReg_date() %></td>
-						<td>삭제</td>
+						<td>
+							<form action="patientDeleteOrUpdate" onSubmit="return check(this)" name="F">
+								<input type="hidden" value="<%= l.getP_code()%>" name="P_CODE"/>
+								<input type="submit" value="삭제" name="BTN"/>
+								<input type="submit" value="수정" name="BTN"/>
+							</form>
+						</td>
 					</tr>
 				<%
 					}
@@ -46,5 +52,12 @@
 		</div>
 	</section>
 	<jsp:include page="footer.jsp"></jsp:include>
+	<script type="text/javascript">
+		function check(f){
+				if(! confirm("정말로 진행하시겠습니까?")){
+					return false;
+				}
+		}
+	</script>
 </body>
 </html>

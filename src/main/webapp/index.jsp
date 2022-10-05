@@ -5,6 +5,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<style type="text/css">
+ ul {list-style:none; display:flex;}
+</style>
 </head>
 <body>
 	<%@ include file="header.jsp" %>

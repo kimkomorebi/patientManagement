@@ -61,9 +61,9 @@ public class InsertPatientInfoServlet extends HttpServlet {
 		
 		boolean result = dbe.putPatientInfo(pl);
 		if(result) {
-			
+			response.sendRedirect("insertPatientInfoResult.jsp?R=Y");
 		}else {
-			
+			response.sendRedirect("insertPatientInfoResult.jsp?R=N");
 		}
 	}
 
