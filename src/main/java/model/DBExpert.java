@@ -311,7 +311,8 @@ public class DBExpert {
 				+ " from patient_info pt, course_info cs, doctor_info dt, patient_course_info pc"
 				+ " where pt.p_code = pc.p_code"
 				+ " and cs.m_code = pc.m_code"
-				+ " and dt.m_code = pc.m_code";
+				+ " and dt.m_code = pc.m_code order by pt.p_code asc";
+		//patient_doctor_info;
 		ArrayList<PatientList> list = new ArrayList<PatientList>();
 		PatientList pl = null;
 		try {
