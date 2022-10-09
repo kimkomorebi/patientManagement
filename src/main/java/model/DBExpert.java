@@ -397,24 +397,12 @@ public class DBExpert {
 		return list;
 	}
 	public ArrayList<PatientList> getPatientList(){
-//		String select = "select pa.p_code, pa.name, pa.addr, cs.title,dt.name,"
-//				+ "pc.room, to_char(pc.reg_date, 'YYYY-MM-DD')"
-//				+ " from patient_info pa, doctor_info dt, course_info cs, patient_course_info pc"
-//				+ " where pc.p_code = pa.p_code"
-//				+ " and pc.m_code = cs.m_code"
-//				+ " and dt.m_code = pc.m_code";
-//		String select ="select pa.p_code, pa.name, pa.addr, cs.title, dt.name,"
-//				+ "pc.room, to_char(pc.reg_date, 'YYYY-MM-DD')"
-//				+ " from patient_info pa, doctor_info dt, course_info cs, patient_doctor_info pd, patient_course_info pc"
-//				+ " where pa.p_code = pd.p_code"
-//				+ " and dt.d_code = pd.d_code"
-//				+ " and cs.m_code = dt.m_code"
-//				+ " and pc.m_code = dt.m_code";
-//		String select = "select pt.p_code, pt.name, pt.addr, cs.title, dt.name, pc.room, pc.reg_date"
-//				+ " from patient_info pt, course_info cs, doctor_info dt, patient_course_info pc"
-//				+ " where pt.p_code = pc.p_code"
-//				+ " and cs.m_code = pc.m_code"
-//				+ " and dt.m_code = pc.m_code order by pt.p_code asc";
+
+		//외래키로 잡혀있는 patient_doctor_info pd와
+		//patient_course_info에 다른 테이블과
+		//동일한 값이 들어가 있고,
+		//위 두 테이블에 입력된 데이터를 기반으로 출력해야 하기 때문에
+		//위 두 테이블에 다 등가 조인을 해야 한다.
 		String select = "select pd.p_code, pt.name, pt.addr, cs.title, dt.name, pc.room, to_char(pc.reg_date, 'YYYY-MM-DD')"
 				+ " from patient_doctor_info pd, patient_info pt,"
 				+ " doctor_info dt, course_info cs, patient_course_info pc"
@@ -424,11 +412,7 @@ public class DBExpert {
 				+ " and pc.m_code = cs.m_code"
 				+ " and dt.m_code = pc.m_code"
 				+ " order by pd.p_code asc";
-		//외래키로 잡혀있는 patient_doctor_info pd와
-		//patient_course_info에 다른 테이블과
-		//동일한 값이 들어가 있고,
-		//위 두 테이블에 입력된 데이터를 기반으로 출력해야 하기 때문에
-		//위 두 테이블에 다 등가 조인을 해야 한다.
+
 		//patient_doctor_info;
 		ArrayList<PatientList> list = new ArrayList<PatientList>();
 		PatientList pl = null;
