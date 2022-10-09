@@ -38,10 +38,10 @@
 						<td><%= l.getRoom() %></td>
 						<td><%= l.getReg_date() %></td>
 						<td>
-							<form action="patientDeleteOrUpdate" onSubmit="return check(this)" name="F">
+							<form action="patientDeleteOrUpdate" onSubmit="return check(this)" name="F" method="post">
 								<input type="hidden" value="<%= l.getP_code()%>" name="P_CODE"/>
-								<input type="submit" value="삭제" name="BTN"/>
 								<input type="submit" value="수정" name="BTN"/>
+								<input type="submit" value="삭제" name="BTN"/>
 							</form>
 						</td>
 					</tr>

@@ -10,6 +10,13 @@ public class PatientList {
 	String room;//병실 변호
 	String reg_date;//등록일
 	String d_code;//의사 코드
+	String tel;//환자 번호
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 	public String getD_code() {
 		return d_code;
 	}
